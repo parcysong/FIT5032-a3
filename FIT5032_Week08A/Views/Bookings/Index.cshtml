@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FIT5032_Week08A.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfAdults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfKids)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.FlightCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating.Feedback)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfAdults)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfKids)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.FlightCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.Feedback)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingId })
+        </td>
+    </tr>
+}
+
+</table>

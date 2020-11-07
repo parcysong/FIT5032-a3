@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FIT5032_Week08A.Models.Flight>
+
+@{
+    ViewBag.Title = "ViewFlights";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewFlights</h2>
+
+@using (Html.BeginForm("ViewFlights", "Flights", FormMethod.Get))
+{
+    <b> Search Flights</b>
+    @Html.TextBox("location1")
+    @Html.TextBox("location2")
+    <input type="submit" value="View Flights" />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeparturePlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departureDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrivalDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasePrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeparturePlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departureDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.arrivalDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasePrice)
+            </td>
+        </tr>
+    }
+
+</table>
